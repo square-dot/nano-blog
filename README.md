@@ -1,6 +1,7 @@
 # nano-blog
 
 local dev 
-su italo psw calvino
-emilio psw lussu
-mario psw luzi
+users
+- [su] italo psw calvino
+- emilio psw lussulussu
+- mario psw luziluzi
