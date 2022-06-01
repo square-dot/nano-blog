@@ -24,7 +24,7 @@ def login_page(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return render(request, "home.html", context = {})
+        return render(request, "home.html", context = {"message" : "login please"})
     else:
         return render(request, "login.html", context={"message" : "login failed"})
 
