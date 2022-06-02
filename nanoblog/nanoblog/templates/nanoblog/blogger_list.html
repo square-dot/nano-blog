@@ -1,16 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Authors</h1>
-{% if author_list %}
+<h1>Bloggers</h1>
+{% if blogger_list %}
 <ul>
-    {% for author in author_list %}
+    {% for blogger in blogger_list %}
     <li>
-        {{ author }}
+        {{ blogger }}
     </li>
     {% endfor %}
 </ul>
 {% else %}
-<p>There are no authors.</p>
+<p>There are no bloggers.</p>
 {% endif %}
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1>Blog entries</h1>
+<h1>Blog posts</h1>
 {% if blogentry_list %}
 <ul>
-    {% for blogentry in blogentry_list %}
+    {% for blogpost in blogpost_list %}
     <li>
-        Put here the values of the blog entry
+        Put here the values of the blog posts
     </li>
     {% endfor %}
 </ul>
 {% else %}
-<p>There are no entries in the blog.</p>
+<p>There are no posts in the blog.</p>
 {% endif %}
 {% endblock %}

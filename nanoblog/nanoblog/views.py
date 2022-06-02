@@ -1,20 +1,29 @@
-from django.shortcuts import render
-from django.views.generic import ListView
-from nanoblog.models import Author, BlogEntry
 from django.contrib.auth import authenticate, login
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+
+from nanoblog.models import Blogger, BlogPost
+
 
 def home(request):
     context = {}
     return render(request, "home.html", context=context)
 
 
-class Authors(ListView):
-    model = Author
+class Bloggers(ListView):
+    model = Blogger
     paginate_by = 5
 
 
-class BlogEntries(ListView):
-    model = BlogEntry
+class BloggerView(DetailView):
+    model = Blogger
+
+class BlogPostView(DetailView):
+    model = BlogPost
+
+
+class BlogPosts(ListView):
+    model = BlogPost
     paginate_by = 20
 
 

@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
-class Author(models.Model):
+
+class Blogger(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     shortbio = models.TextField(max_length=2000)
 
@@ -12,10 +13,10 @@ class Author(models.Model):
         ordering = ["user"]
 
 
-class BlogEntry(models.Model):
+class BlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Blogger, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -24,4 +25,4 @@ class BlogEntry(models.Model):
 class Comment(models.Model):
     text = models.TextField(max_length=400)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    blogentry = models.ForeignKey(BlogEntry, on_delete=models.CASCADE)
+    blogentry = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
