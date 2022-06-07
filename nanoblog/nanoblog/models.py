@@ -30,7 +30,7 @@ class BlogPost(models.Model):
 
     def get_aboslute_url(self):
         print(f"Returning absolute url for blogpost {self.id}")  # type: ignore
-        return reverse("post", args=[str(self.id)])  # type: ignore
+        return reverse("blogpost", args=[str(self.id)])  # type: ignore
 
 class Comment(models.Model):
     text = models.TextField(max_length=400)
