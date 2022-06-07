@@ -2,11 +2,11 @@
 
 {% block content %}
 <h1>Blog posts</h1>
-{% if blogentry_list %}
+{% if blogpost_list %}
 <ul>
     {% for blogpost in blogpost_list %}
     <li>
-        Put here the values of the blog posts
+        <a href="{{ blogpost.get_absolute_url }}">{{ blogpost }}</a> ({{ blogpost.date }}) - <a href="{{ blogpost.blogger.get_absolute_url }}">{{ blogpost.blogger }}</a>
     </li>
     {% endfor %}
 </ul>

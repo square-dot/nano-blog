@@ -9,18 +9,15 @@ def home(request):
     context = {}
     return render(request, "home.html", context=context)
 
-
-class Bloggers(ListView):
-    model = Blogger
-    paginate_by = 5
-
-
 class BloggerView(DetailView):
     model = Blogger
 
 class BlogPostView(DetailView):
     model = BlogPost
 
+class Bloggers(ListView):
+    model = Blogger
+    paginate_by = 5
 
 class BlogPosts(ListView):
     model = BlogPost
