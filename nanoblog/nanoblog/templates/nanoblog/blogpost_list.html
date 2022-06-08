@@ -6,7 +6,7 @@
 <ul>
     {% for blogpost in blogpost_list %}
     <li>
-        <a href="{{ blogpost.get_absolute_url }}">{{ blogpost }}</a> ({{ blogpost.date }}) - <a href="{{ blogpost.blogger.get_absolute_url }}">{{ blogpost.blogger }}</a>
+        <a href="{% url 'blogpost' pk=blogpost.id %}">{{ blogpost }}</a> ({{ blogpost.date }}) - <a href="{{ blogpost.blogger.get_absolute_url }}">{{ blogpost.blogger }}</a>
     </li>
     {% endfor %}
 </ul>

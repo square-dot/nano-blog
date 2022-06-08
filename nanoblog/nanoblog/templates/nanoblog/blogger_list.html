@@ -6,7 +6,7 @@
 <ul>
     {% for blogger in blogger_list %}
     <li>
-        <a href="{{ blogger.get_absolute_url }}">{{ blogger }}</a>
+        <a href="{% url 'blogger' pk=blogger.id %}">{{ blogger }}</a>
     </li>
     {% endfor %}
 </ul>
