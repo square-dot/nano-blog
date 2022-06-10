@@ -19,7 +19,7 @@
                 {% block sidebar %}
                 <ul class="sidebar-nav" style = "list-style-type: none;">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'blogposts' %}">Blog posts</a></li>
+                    <li><a href="{% url 'blogposts' %}">All blogs</a></li>
                     <li><a href="{% url 'bloggers' %}">The bloggers</a></li>
                     <br/>
                     {% if user.is_authenticated %}

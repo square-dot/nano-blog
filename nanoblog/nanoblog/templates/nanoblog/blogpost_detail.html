@@ -1,7 +1,11 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-
-Detail of blogpost
-
+<h2>{{ blogpost.title }}</h2>
+<p>Post date: {{ blogpost.date }}</p>
+<p>Author: {{ blogpost.blogger }}</p>
+<p> {{ blogpost.content }} </p>
+{% for comment in context.comments %}
+<p>{{ comment }}</p>
+{% endfor %}
 {% endblock %}

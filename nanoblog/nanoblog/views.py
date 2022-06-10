@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from nanoblog.models import Blogger, BlogPost
+from nanoblog.models import Blogger, BlogPost, Comment
 
 
 def home(request):
@@ -14,6 +14,12 @@ class BloggerView(DetailView):
 
 class BlogPostView(DetailView):
     model = BlogPost
+    
+    def get_context_data(self, **kwargs):
+        ctx =  super().get_context_data(**kwargs)
+        ctx['comments'] = Comment.objects.filter(blogpost=ctx["object"])
+        return ctx
+
 
 class Bloggers(ListView):
     model = Blogger

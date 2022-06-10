@@ -35,4 +35,4 @@ class BlogPost(models.Model):
 class Comment(models.Model):
     text = models.TextField(max_length=400)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    blogentry = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    blogpost = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
