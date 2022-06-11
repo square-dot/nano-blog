@@ -2,10 +2,14 @@
 
 {% block content %}
 <h2>{{ blogpost.title }}</h2>
-<p>Post date: {{ blogpost.date }}</p>
+<p>Post date: {{ blogpost.time }}</p>
 <p>Author: {{ blogpost.blogger }}</p>
 <p> {{ blogpost.content }} </p>
-{% for comment in context.comments %}
-<p>{{ comment }}</p>
+<br/>
+<p>Comments</p>
+{% for comment in comments %}
+<p><b>{{ comment.user }}</b></p>
+<p>{{ comment.text }}</p>
+<p>{{ comment.time }}</p>
 {% endfor %}
 {% endblock %}

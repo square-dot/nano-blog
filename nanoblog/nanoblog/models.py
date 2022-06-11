@@ -13,7 +13,7 @@ class Blogger(models.Model):
 
     def get_aboslute_url(self):
         print(f"Returning absolute url for blogger {self.id}")  # type: ignore
-        return reverse("blogger", args=[str(self.id)])  # type: ignore
+        return reverse("blogger", kwargs={'pk': self.pk})  # type: ignore
 
     class Meta:
         ordering = ["user"]
@@ -23,7 +23,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
     blogger = models.ForeignKey(Blogger, on_delete=models.CASCADE)
-    date = models.DateField(default=datetime.datetime.now, editable=False)
+    time = models.DateTimeField(default=datetime.datetime.now, editable=False)
 
     def __str__(self):
         return f"{self.title}"
@@ -36,3 +36,4 @@ class Comment(models.Model):
     text = models.TextField(max_length=400)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     blogpost = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    time = models.DateTimeField(default=datetime.datetime.now, editable=False)

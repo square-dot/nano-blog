@@ -2,6 +2,16 @@
 
 {% block content %}
 
-{{ blogger }}
+<h2>Blogger: {{ blogger }}</h2>
+<h3>Bio</h3>
+<p>{{ blogger.shortbio }}</p>
+<h3>Blogs list</h3>
+<ul>
+    {% for blogpost in blogposts %}
+    <li>
+        <a href="{% url 'blogpost' pk=blogpost.id %}">{{ blogpost }}</a> ({{ blogpost.time }})</a>
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}

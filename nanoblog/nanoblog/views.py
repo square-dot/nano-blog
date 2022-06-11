@@ -11,6 +11,11 @@ def home(request):
 
 class BloggerView(DetailView):
     model = Blogger
+    
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['blogposts'] = BlogPost.objects.filter(blogger=ctx["object"])
+        return ctx
 
 class BlogPostView(DetailView):
     model = BlogPost
@@ -20,10 +25,10 @@ class BlogPostView(DetailView):
         ctx['comments'] = Comment.objects.filter(blogpost=ctx["object"])
         return ctx
 
-
 class Bloggers(ListView):
     model = Blogger
     paginate_by = 5
+
 
 class BlogPosts(ListView):
     model = BlogPost
