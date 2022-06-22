@@ -12,6 +12,7 @@ urlpatterns = [
     path("blog/blogposts/", views.BlogPosts.as_view(), name="blogposts"),
     path("blog/blogpost/<int:pk>/", views.BlogPostView.as_view(), name="blogpost"),
     path("blog/blogpost/<int:pk>/create", views.BlogPostView.as_view(), name="create_blogpost"),
+    path("blog/new_blog", views.new_blog, name="new_blog")
 ] + [
     path("", include('django.contrib.auth.urls')),
 ]

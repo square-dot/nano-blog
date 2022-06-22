@@ -21,6 +21,7 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'blogposts' %}">All blogs</a></li>
                     <li><a href="{% url 'bloggers' %}">The bloggers</a></li>
+                    <li><a href="{% url 'new_blog' %}">Create new blog</a></li>
                     <br/>
                     {% if user.is_authenticated %}
                     <li>User: {{ user.get_username }}</li>

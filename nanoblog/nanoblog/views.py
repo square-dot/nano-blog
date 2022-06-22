@@ -17,6 +17,9 @@ class BloggerView(DetailView):
         ctx['blogposts'] = BlogPost.objects.filter(blogger=ctx["object"])
         return ctx
 
+def new_blog(request):
+    return render(request, "new_blog.html", context={})
+
 class BlogPostView(DetailView):
     model = BlogPost
     

@@ -13,7 +13,7 @@ class Blogger(models.Model):
 
     def get_aboslute_url(self):
         print(f"Returning absolute url for blogger {self.id}")  # type: ignore
-        return reverse("blogger", kwargs={'pk': self.pk})  # type: ignore
+        return reverse("blogger", args=[str(self.id)])  # type: ignore
 
     class Meta:
         ordering = ["user"]

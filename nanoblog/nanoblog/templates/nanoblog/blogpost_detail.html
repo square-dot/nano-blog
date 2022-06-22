@@ -3,7 +3,7 @@
 {% block content %}
 <h2>{{ blogpost.title }}</h2>
 <p>Post date: {{ blogpost.time }}</p>
-<p>Author: {{ blogpost.blogger }}</p>
+<p>Author: <a href="{% url 'blogger' pk=blogpost.blogger.id %}"> {{ blogpost.blogger }}</a></p>
 <p> {{ blogpost.content }} </p>
 <br/>
 <p>Comments</p>
